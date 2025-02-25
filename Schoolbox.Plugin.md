@@ -28,29 +28,9 @@ On student profile page, adds tooltip to student's status symbol assigned to pos
 
 Decodes for Staff Role only, otherwise it hides the symbol.
 
-## Usage
-Once installed and enabled, the plugin automatically enhances the SchoolBox Student profile interface. No additional actions are required from the end user to access the new features.
-
 ## Requirements
 - Schoolbox version 22 or higher
 - On-Prem Synergetic Database
 - IIS 10 or higher (by request, able to extend the code to use on Azure Function)
 - MS SQL Server 2019 or higher
 
-## Installation Overview
-- 🖥 __Client Component__: Configure & install javascript on Schoolbox
-- 🎛 __Middleware Service Component__: Install REST API via IIS (by request, able to extend the code to use on Azure Function)
-- 🗄 __Database Component__: Install required database objects on MS SQL
-
-See [INSTALL.MD](INSTALL.md) for detailed instructions.
-
-## Support
-While this is an unofficial plugin, you can:
-- Report issues through the GitHub issue tracker
-- Contact the maintainer for critical bugs
-
-## Disclaimer
-This plugin is not officially associated with or endorsed by Schoolbox. Use at your own discretion and ensure compliance with your institution's policies.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
