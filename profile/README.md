@@ -1,5 +1,6 @@
 # About
-This repository serves as an index of available resources. If you find something you're interested in, please ask to join for access.
+This serves as an index of available private repositories & resources. 
+If you find something you're interested in, you can [request for access](https://forms.gle/5UGfnCcXQDTzAZB78).
 
-# Repository
+# Resources
 - [__Schoolbox.Plugin__](/Schoolbox.Plugin.md) : An unofficial plugin that enhances the SchoolBox experience for staff members by adding valuable student information and accessibility features.
