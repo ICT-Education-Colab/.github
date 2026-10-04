@@ -30,22 +30,22 @@
       a = [];
     let c = [];
     (e.each(function () {
-      const o = n(this);
-      var t;
-      if (!o.data("schoolbox-plugin--accordion-init"))
+      const t = n(this);
+      var e;
+      if (!t.data("schoolbox-plugin--accordion-init"))
         if (
-          (t = o).hasClass(
+          (e = t).hasClass(
             "Schoolbox_Resource_Textbox_Component_Homepage_Controller",
           ) &&
-          (t.find('a[data-collapser="true"]').length > 0 ||
-            t.find('[data-collapsable="true"]').length > 0)
+          e.find('a[data-collapser="true"]').length > 0 &&
+          !o(t)
         )
-          if (0 === c.length) c.push(o);
+          if (0 === c.length) c.push(t);
           else {
             const n = c[c.length - 1];
-            o.prev()[0] === n[0]
-              ? c.push(o)
-              : (c.length > 1 && a.push(c), (c = [o]));
+            t.prev()[0] === n[0]
+              ? c.push(t)
+              : (c.length > 1 && a.push(c), (c = [t]));
           }
         else (c.length > 1 && a.push(c), (c = []));
     }),
