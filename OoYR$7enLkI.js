@@ -1,5 +1,18 @@
 !(function (n) {
   "use strict";
+  function o(n) {
+    const o = n.find('[data-collapsable="true"]');
+    return (
+      !!o.length &&
+      o.is(":visible") &&
+      !o.hasClass("hide") &&
+      "collapsed" !== o.attr("data-collapse-state")
+    );
+  }
+  function t(n) {
+    const t = n.find('a[data-collapser="true"]');
+    t.length && o(n) && t[0].click();
+  }
   n(document).ready(function () {
     !(function () {
       const o = "schoolbox-plugin--accordion-styles";
@@ -11,76 +24,67 @@
         )
         .appendTo("head");
     })();
-    const o = n(
+    const e = n(
         ".component-container.Schoolbox_Resource_Textbox_Component_Homepage_Controller",
       ),
-      t = [];
-    let e = [];
-    (o.each(function () {
+      a = [];
+    let c = [];
+    (e.each(function () {
       const o = n(this);
-      var a;
+      var t;
       if (!o.data("schoolbox-plugin--accordion-init"))
         if (
-          (a = o).hasClass(
+          (t = o).hasClass(
             "Schoolbox_Resource_Textbox_Component_Homepage_Controller",
           ) &&
-          (a.find('a[data-collapser="true"]').length > 0 ||
-            a.find('[data-collapsable="true"]').length > 0)
+          (t.find('a[data-collapser="true"]').length > 0 ||
+            t.find('[data-collapsable="true"]').length > 0)
         )
-          if (0 === e.length) e.push(o);
+          if (0 === c.length) c.push(o);
           else {
-            const n = e[e.length - 1];
+            const n = c[c.length - 1];
             o.prev()[0] === n[0]
-              ? e.push(o)
-              : (e.length > 1 && t.push(e), (e = [o]));
+              ? c.push(o)
+              : (c.length > 1 && a.push(c), (c = [o]));
           }
-        else (e.length > 1 && t.push(e), (e = []));
+        else (c.length > 1 && a.push(c), (c = []));
     }),
-      e.length > 1 && t.push(e),
-      n.each(t, function (o, t) {
-        const e = n(
-          n.map(t, function (n) {
+      c.length > 1 && a.push(c),
+      n.each(a, function (e, a) {
+        const c = n(
+          n.map(a, function (n) {
             return n[0];
           }),
         );
-        e.data("schoolbox-plugin--accordion-init", !0);
-        const a = n('<div class="schoolbox-plugin--accordion-group"></div>');
-        (e.wrapAll(a),
-          e
+        c.data("schoolbox-plugin--accordion-init", !0);
+        const r = n('<div class="schoolbox-plugin--accordion-group"></div>');
+        (c.wrapAll(r),
+          c
             .first()
             .parent()
-            .on("click", ".component-titlebar", function (o) {
+            .on("click", ".component-titlebar", function (e) {
               if (
-                n(o.target).closest(
+                n(e.target).closest(
                   "[data-component-settings], [data-component-handle], form, input, select, button, .editPanel",
                 ).length
               )
                 return;
-              (o.preventDefault(), o.stopPropagation());
-              const t = n(this).closest(".component-container"),
-                e = t.find('a[data-collapser="true"]');
-              ((function (n) {
-                const o = n.find('[data-collapsable="true"]');
-                return (
-                  !!o.length &&
-                  o.is(":visible") &&
-                  !o.hasClass("hide") &&
-                  "collapsed" !== o.attr("data-collapse-state")
-                );
-              })(t) ||
-                t.siblings(".component-container").each(function () {
-                  !(function (n) {
-                    const o = n.find('[data-collapsable="true"]'),
-                      t = n.find('a[data-collapser="true"]');
-                    if (!o.length) return;
-                    o.is(":visible") &&
-                      !o.hasClass("hide") &&
-                      "collapsed" !== o.attr("data-collapse-state") &&
-                      t.length &&
-                      t[0].click();
-                  })(n(this));
-                }),
-                e.length && e[0].click());
+              const a = n(this).closest(".component-container"),
+                c = a.find('a[data-collapser="true"]'),
+                r = n(e.target).closest('a[data-collapser="true"]').length > 0,
+                i = o(a);
+              r
+                ? i ||
+                  a.siblings(".component-container").each(function () {
+                    t(n(this));
+                  })
+                : (e.preventDefault(),
+                  e.stopPropagation(),
+                  i ||
+                    a.siblings(".component-container").each(function () {
+                      t(n(this));
+                    }),
+                  c.length && c[0].click());
             }));
       }));
   });
